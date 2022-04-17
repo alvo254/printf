@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef HOLBERTON_H
+#define HOLBERTON_H
 
 #include <stdlib.h>
 #include <stdarg.h>
@@ -72,6 +72,5 @@ int print_address(va_list l, flags_t *f);
 
 /* print_percent */
 int print_percent(va_list l, flags_t *f);
-
 
 #endif
