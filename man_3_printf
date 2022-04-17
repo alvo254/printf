@@ -1,101 +1,88 @@
-." Manpage for _printf
-." be in contact for bugs
-."
-
-.TH _printf 3 "June 2021" "Programmer's Manual"
-version 1.0 release date: 24/07/21
-
-
+.TH _printf 3 "17 March 2020" "" "_printf man page"
 .SH NAME
-.B _printf
-- Prints formatted output to stdout.
+_printf \- a basic replica of the standard printf function
 
 .SH SYNOPSIS
+.B #include \(dqholberton.h\(dq
 
-.RB #include <main.h>
-
-.RB int _printf(const char *restrict format, ...);
+.BI "int _printf(const char *" "format, ..." ");"
 
 .SH DESCRIPTION
-
-The funtions in the _printf() function produce output according to a format.
-Write output to the standard output (stdout) stream and returns the number
-of characters printed.
-All of these functions write the output under the control of a
-format string that specifies how subsequent arguments (or
-arguments accessed via the variable-length argument facilities
-are converted for output.
-
-.B Format of the format string:
-The format string is a character string, is composed
-of zero or more directives: ordinary characters (not %), which
-are copied unchanged to the output stream; and conversion
-specifications, each of which results in fetching zero or more
-subsequent arguments.  Each conversion specification is
-introduced by the character %, and ends with a conversion
-specifier.
-
-The overall syntax of a conversion specification is:
-
-%[$][flags][width][.precision][length modifier]conversion
-
-
-The arguments must correspond properly (after type promotion) with the conversion specifier.
-
-_printf("%d", 1);
-
-.SH CONVERSION SPECIFIERS
-.B %c - prints a single char
-.B %s - prints the argument as a string
-.B %% - prints a single perecentage sign to the stream
-.B %i / %d - prints signed decimal integer
-.B %R - prints the rot13'ed string
-.B %r - prints the reversed string
+Write output to stdout using the format string. The format string is comprised of 0 or more directives and contains specifiers beginning with the character \(dq%\(dq. The specifier use the corresponding argument to print the variable.
 
 .SH RETURN VALUE
+On success, \fB_printf\fR returns the number of bytes printed, excluding the null byte. On failure, returns -1.
 
-.B Upon successful return, these functions return the number of characters printed (excluding the null byte used to end output to strings).
+.SH SPECIFERS
+.TP
+d, i
+The int argument is printed in signed decimal notation
+.TP
+u
+The \fIunsigned int\fR argument is printed in unsigned decimal notation
+.TP
+o
+The \fIunsigned int\fR argument is printed in unsigned octal notation
+.TP
+x, X
+The \fIunsigned int\fR argument is printed in unsigned hexadecimal notation. The letters \(dqabcdef\(dq are used for x; the letters \(dqABCDEF\(dq are used for X.
+.TP
+b
+The \fIunsigned int\fR argument is printed in unsigned binary notation.
+.TP
+c
+The \fIint\fR argument is converted to an \fIunsigned char\fR and printed.
+.TP
+s
+The \fIconst char *\fR argument is expected to be a pointer to a character array. Characters up to, but not including, the terminating null byte are written
+.TP
+%
+A '%' is written. No argument is converted.
+.TP
+p
+The \fIvoid *\fR pointer argument is printed in hexadecimal format beginning with '0x'.
+.TP
+r
+The \fIconst char *\fR argument is expected to be a pointer to a character array. Characters are written in reverse order up to, but not including, the terminating null byte.
+.TP
+R
+The \fIconst char *\fR argument is expected to be a pointer to a character array. Characters are encoded into ROT13 and written up to, but not including, the terminating null byte.
+.TP
+F
+Regardless of what is passed to the function, this specifier only prints an expletive.
 
-.SH EXAMPLES
+
+.SH EXAMPLE
+To print text mixed with a \fIname\fR string variable and an \fIage\fR integer variable:
 .PP
-#include "main.h"
+.nf
+.RS
+#include "holberton.h"
+#include <string.h>
+
+int main(int ac, char **av)
+{
+	int age;
+	char *name;
+
+	if (ac != 3)
+	   return (-1);
+
+	name = av[1];
+	age = atoi(av[2]);
+
+	_printf("Hello! My name is %s and I am %d years old.\n", name, age);
+
+	return (0);
+}
+.fi
 .PP
-_printf("chararacter: %c", 'R');
-.PP
-Output: character: R
-.PP
-_printf("string: %s", "Hi Betty !");
-.PP
-Output: string: Hi Betty !
-.PP
-_printf("integer: %i", 80);
-.PP
-Output: integer: 80
-.PP
-_printf("integrer %i", 14);
-.PP
-Output: integrer 14
-.PP
-_printf("decimal: %d", 100);
-.PP
-Output: decimal: 100
-.PP
-_printf("octal %o", 92);
-.PP
-Output: octal 134
-.PP
-_printf("Percent:[%%]");
-.PP
-Output: Percent:[%]
-.PP
-.B Return value
-.sp
-On success, _printf returns the number of printed characters. If
-.I format
-is NULL or error, it returns -1.
-.sp
-No known bugs.
-.SH AUTHORS
-Diego G, Ronald R, Joaquin P
-.SH COPYRIGHT
-    Diego G, Ronald R, Joaquin P
+
+.SH SEE ALSO
+.BR printf (3)
+
+.SH AUTHOR
+Cynthia Taylor, Tabitha O'Melay
+
+.SH BUGS
+Work in progress. There are bugs as of 3/16/20. Hopefully there won't be by the end of the day tomorrow.

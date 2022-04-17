@@ -1,4 +1,4 @@
-#include "main.h"
+#include "holberton.h"
 /**
   * print_b - prints binary numbers (unsigned)
   * @args: the number

@@ -1,4 +1,4 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
  * print_lowerHex - simultaneous convert and print integer in hexadecimal
