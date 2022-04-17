@@ -86,9 +86,5 @@ gcc -Wall -Werror -Wextra -pedantic *.c
 
 This project is licensed under the Holberton School Software Engineering Program.
 
-## Acknowledgments
 
-* The Framework
-* Cohort 11
-* Holberton's CPO, Poppy
 
