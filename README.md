@@ -49,11 +49,7 @@ Expletive: printf("%F", anything); Output: FUCK
 ## Deployment
 This project was released soon after COVID - 19 precautions were adopted at our Holberton campus, so Cynthia and I worked both remotely and in person in our private homes for the duration. We set up a [Trello](https://trello.com) board, divided tasks, and kept each other on the same page as we went.
 
-## Built With
 
-* [Ubuntu](https://ubuntu.com/)
-* [GitHub](https://github.com/)
-* [StackEdit](https://stackedit.io/)
 
 # Project Requirements
 -   Allowed editors: `vi`, `vim`, `emacs`
@@ -84,7 +80,7 @@ gcc -Wall -Werror -Wextra -pedantic *.c
 
 ## Authors
 * [**Cynthia Taylor**](https://github.com/cg-taylor) - [*@wholockwars*](https://twitter.com/wholockwars)
-* [**Tabitha O'Melay**](https://github.com/tabbykatz) - [*@tabby__katz*](https://twitter.com/tabby__katz)
+
 
 ## License
 
