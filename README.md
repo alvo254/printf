@@ -79,7 +79,7 @@ gcc -Wall -Werror -Wextra -pedantic *.c
 * The number of characters printed.
 
 ## Authors
-* [**Cynthia Taylor**](https://github.com/cg-taylor) - [*@wholockwars*](https://twitter.com/wholockwars)
+* [**Alvin Ndungu**](https://github.com/alvo254) - [*@wholockwars*](https://twitter.com/alvinkhamron)
 
 
 ## License
