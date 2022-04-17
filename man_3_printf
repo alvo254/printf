@@ -1,4 +1,4 @@
-.TH _printf 3 "17 March 2020" "" "_printf man page"
+.TH _printf 3 "17 April 2022" "" "_printf man page"
 .SH NAME
 _printf \- a basic replica of the standard printf function
 
@@ -57,7 +57,7 @@ To print text mixed with a \fIname\fR string variable and an \fIage\fR integer v
 .PP
 .nf
 .RS
-#include "holberton.h"
+#include "main.h"
 #include <string.h>
 
 int main(int ac, char **av)
@@ -82,7 +82,7 @@ int main(int ac, char **av)
 .BR printf (3)
 
 .SH AUTHOR
-Cynthia Taylor, Tabitha O'Melay
+Alvin Ndungu, empty
 
 .SH BUGS
 Work in progress. There are bugs as of 3/16/20. Hopefully there won't be by the end of the day tomorrow.
