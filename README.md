@@ -1,112 +1,98 @@
-# 0x10. C - printf
+# **`printf`**
 
-## Description
-This team project is part of the first year curriculum of Holberton School.
-_printf replicates the C standard library printf() function.
 
-What you should learn from this project:
+>Write your own `printf` function.
 
-* How to use git in a team setting
-* Applying variadic functions to a big project
-* The complexities of printf
-* Managing a lot of files and finding a good workflow
 
----
+## Welcome
+A rebuild of the standard `printf` function in C. Our project required a function capable of printing with the `%d`, `%c`, `%s`, and `%%` specifiers to standard output. `printf` returns the number of characters printed (excluding the null byte at the end of strings). We were not asked to handle flag characters, field width, precision, or length.
 
-## Prototype
-```int _printf(const char *format, ...);```
+## The Holberton Way
+Holberton students rarely rely on the C standard library, instead building our own functions and headers as we learn. Here you will see a variety of our builds put to use to build a simple re-imagining of `printf`.
 
-## Usage
-* Prints a string to the standard output, according to a given format
-* All files were created and compiled on Ubuntu 14.04.4 LTS using GCC 4.8.4 with the command ```gcc -Wall -Werror -Wextra -pedantic *.c```
-* Returns the number of characters in the output string on success, -1 otherwise
-* Call it this way: ```_printf("format string", arguments...)``` where ```format string``` can contain conversion specifiers and flags,
-along with regular characters
+## The Beast that is `printf`
+It was daunting to approach a reinvention of `printf`. This is possibly the most refined function in C, with human hours spent on it thought to surpass a decade.
 
-## Examples
+## Format Specifiers
+Our team chose to add `%x` ,`%X`, `%b`, `%o`, `%u`, `%r`, `%R`, and `%p` formatting. We relied on the library we have been building at Holberton as well as new concepts gathered during this project.
 
-* ```_printf("Hello, Holberton\n")``` *prints "Hello, Holberton", followed by a new line*
-* ```_printf("%s", "Hello")``` *prints "Hello"*
-* ```_printf("This is a number: %d", 98)``` *prints "This is a number: 98"*
+### Supported Format Types
 
----
+| Type  | Output |
+|:-----:|:------:|
+| c | single character |
+| s | string |
+| r | string in reverse |
+| R | string in rot13 |
+| d | integer in decimal |
+| i | integer |
+| % | percent sign |
+| x | lowercase hex |
+| X | uppercase hex |
+| b | binary |
+| o | octal |
+| u | unsigned |
+| p | pointer |
+| F | expletive |
 
-# Tasks
+### Examples
 
-These are all the tasks of this project, the ones that are completed link to the corresponding files.
+Character: printf("%c", 'A'); Output:: A
 
-### [0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life](./_printf.c)
-* Write a function that produces output according to format.
-  - c : converts input into a character
-  - s : converts input into a string
+String: printf("%s", 'This is a string.'); Output: This is a string.
 
-### [1. Education is when you read the fine print. Experience is what you get if you don't](./print_nums.c)
-* Handle the following conversion specifiers:
-  - d : converts input into a base 10 integer
-  - i : converts input into an integer
+Integer: printf("%i", 5); Output: 5
 
-### [2. Just because it's in print doesn't mean it's the gospel](./man_3_printf)
-* Create a man page for your function
+Expletive: printf("%F", anything); Output: FUCK
 
-### [3. With a face like mine, I do better in print](./print_bases.c)
-* Handle the following conversion specifiers:
-  - b : the unsigned int argument is converted to binary
 
-### [4. What one has not experienced, one will never understand in print](./print_bases.c)
-* Handle the following conversion specifiers:
-  - u : converts the input into an unsigned integer
-  - o : converts the input into an octal number
-  - x : converts the input into a hexadecimal number
-  - X : converts the input into a hexadecimal number with capital letters
+## Deployment
+This project was released soon after COVID - 19 precautions were adopted at our Holberton campus, so Cynthia and I worked both remotely and in person in our private homes for the duration. We set up a [Trello](https://trello.com) board, divided tasks, and kept each other on the same page as we went.
 
-### [5. Nothing in fine print is ever good news](./write_funcs.c)
-* Use a local buffer of 1024 chars in order to call write as little as possible.
+## Built With
 
-### [6. My weakness is wearing too much leopard print](./print_custom.c)
-* Handle the following custom conversion specifier:
-  - S : prints the string
-  - Non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \x, followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
+* [Ubuntu](https://ubuntu.com/)
+* [GitHub](https://github.com/)
+* [StackEdit](https://stackedit.io/)
 
-### [7. How is the world ruled and led to war? Diplomats lie to journalists and believe these lies when they see them in print](./print_address.c)
-* Handle the following conversion specifier:
-  - p : int input is converted to a pointer address
+# Project Requirements
+-   Allowed editors: `vi`, `vim`, `emacs`
+-   All your files will be compiled on Ubuntu 14.04 LTS
+-   Your programs and functions will be compiled with `gcc 4.8.4` using the flags `-Wall` `-Werror` `-Wextra` `and -pedantic`
+-   All your files should end with a new line
+-   A `README.md` file, at the root of the folder of the project is mandatory
+-   Your code should use the `Betty` style. It will be checked using [betty-style.pl](https://github.com/holbertonschool/Betty/blob/master/betty-style.pl "betty-style.pl") and [betty-doc.pl](https://github.com/holbertonschool/Betty/blob/master/betty-doc.pl "betty-doc.pl")
+-   You are not allowed to use global variables
+-   No more than 5 functions per file
+-   In the following examples, the `main.c` files are shown as examples. You can use them to test your functions, but you don’t have to push them to your repo (if you do we won’t take them into account). We will use our own `main.c` files at compilation. Our `main.c` files might be different from the one shown in the examples
+-   The prototypes of all your functions should be included in your header file called `holberton.h`
+-   Don’t forget to push your header file
+-   All your header files should be include guarded
+-   Note that we will not provide the `_putchar` function for this project
 
-### [8. The big print gives and the small print takes away](./get_flag.c)
-* Handle the following flag characters for non-custom conversion specifiers:
-  - \+ : adds a \+ in front of signed positive numbers and a \- in front of signed negative numbers
-  - space : same as \+, but adds a space (is overwritten by \+)
-  - \# : adds a 0 in front of octal conversions that don't begin with one, and a 0x or 0X for x or X conversions
+### Prototype
+#include "holberton.h"
+```bash
+int _printf(const char *format, ...);
+```
+### Compilation
+```bash
+gcc -Wall -Werror -Wextra -pedantic *.c
+```
+### Return Value
+* The number of characters printed.
 
-### [9. Sarcasm is lost in print]
-* Handle the following length modifiers for non-custom conversion specifiers:
-  - l : converts d, i, u, o, x, X conversions in short signed or unsigned ints
-  - h : converts d, i, u, o, x, X conversions in long signed or unsigned ints
+## Authors
+* [**Cynthia Taylor**](https://github.com/cg-taylor) - [*@wholockwars*](https://twitter.com/wholockwars)
+* [**Tabitha O'Melay**](https://github.com/tabbykatz) - [*@tabby__katz*](https://twitter.com/tabby__katz)
 
-### [10. Print some money and give it to us for the rain forests]
-* Handle the field width for non-custom conversion specifiers.
+## License
 
-### [11. The negative is the equivalent of the composer's score, and the print the performance]
-* Handle the precision for non-custom conversion specifiers.
+This project is licensed under the Holberton School Software Engineering Program.
 
-### [12. It's depressing when you're still around and your albums are out of print]
-* Handle the 0 flag character for non-custom conversion specifiers.
+## Acknowledgments
 
-### [13. Every time that I wanted to give up, if I saw an interesting textile, print what ever, suddenly I would see a collection]
-* Handle the - flag character for non-custom conversion specifiers.
+* The Framework
+* Cohort 11
+* Holberton's CPO, Poppy
 
-### [14. Print is the sharpest and the strongest weapon of our party](./print_custom.c)
-* Handle the following custom conversion specifier:
-  - r : prints the reversed string
-
-### [15. The flood of print has turned reading into a process of gulping rather than savoring](./print_custom.c)
-* Handle the following custom conversion specifier:
-  - R : prints the rot13'ed string
-
-### [16. * ]
-* All the above options work well together.
-
----
-
-### Authors
-* **Tu Vo** - [tuvo1106@gmail.com](https://github.com/tuvo1106)
-* **Laura Roudge** - [laura.derohan@gmail.com](https://github.com/lroudge)
